@@ -8,6 +8,7 @@ namespace PoteDeOuro.Models.Entidades
 {
     public class Cliente
     {
+        [Key]
         public int ClienteId { get; set; }
         [Required(ErrorMessage ="Campo obrigatório")]
         [StringLength(30,ErrorMessage ="Nome inválido")]
@@ -44,14 +45,16 @@ namespace PoteDeOuro.Models.Entidades
         [Required(ErrorMessage ="Campo obrigatório")]
         [Compare("Senha",ErrorMessage ="Senhas diferentes")]
         public string ConfirmarSenha { get; set; }
-
+        
+        public int EnderecoId { get; set; }
         public Endereco Endereco { get; set; }
+        public ICollection<Pedidos> Pedidos { get; set; } = new List<Pedidos>();
 
         public Cliente()
         {
         }
 
-        public Cliente(int clienteId, string nome, int cep, DateTime dataNascimento, int telefoneFixo, int celular, string email, string usuario, string senha, string confirmarSenha, Endereco endereco)
+        public Cliente(int clienteId, string nome, int cep, DateTime dataNascimento, int telefoneFixo, int celular, string email, string usuario, string senha, string confirmarSenha, int enderecoId ,Endereco endereco)
         {
             ClienteId = clienteId;
             Nome = nome;
@@ -63,6 +66,7 @@ namespace PoteDeOuro.Models.Entidades
             Usuario = usuario;
             Senha = senha;
             ConfirmarSenha = confirmarSenha;
+            EnderecoId = enderecoId;
             Endereco = endereco;
         }
     }
