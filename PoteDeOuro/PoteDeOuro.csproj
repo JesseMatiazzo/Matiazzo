@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="jQuery.InputMask" Version="4.0.9" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="7.9.1" />
   </ItemGroup>
 
